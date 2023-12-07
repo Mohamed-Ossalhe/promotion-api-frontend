@@ -15,9 +15,13 @@ export class HomeComponent {
 
   ngOnInit() {
     try {
-      this._promotionService.getAllPromotions().then((response: Promotion[]) => {
-        this.promotions = response;
-      });
+      this._promotionService.getAllPromotions()
+        .then((response) => {
+          this.promotions = response;
+        })
+        .catch(e => {
+          console.log(e);
+        });
     }catch(e) {
       console.log("error = " + e);
     }
