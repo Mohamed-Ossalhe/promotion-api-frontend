@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { TableComponent } from './table/table.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
+import { KPICardComponent } from './kpicard/kpicard.component';
 
 
 
 @NgModule({
   declarations: [
     TableComponent,
-    NavbarComponent
+    NavbarComponent,
+    KPICardComponent
   ],
   imports: [
     CommonModule,
