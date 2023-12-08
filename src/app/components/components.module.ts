@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormComponent } from './form/form.component';
 import { FormInputComponent } from './form-input/form-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { KPICardComponent } from './kpicard/kpicard.component';
 
 
 
@@ -15,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     FormComponent,
     FormInputComponent
+    KPICardComponent
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Promotion } from 'src/app/interfaces/promotion';
-import { PromotionService } from 'src/app/services/promotion/promotion.service';
+import {Component} from '@angular/core';
+import {Promotion} from 'src/app/interfaces/promotion';
+import {PromotionService} from 'src/app/services/promotion/promotion.service';
 
 @Component({
   selector: 'app-home',
@@ -11,19 +11,18 @@ export class HomeComponent {
 
   promotions: Promotion[] = [];
 
-  constructor(private _promotionService: PromotionService) {}
+  constructor(private _promotionService: PromotionService) {
+  }
 
   ngOnInit() {
     try {
-      this._promotionService.getAllPromotions()
-        .then((response) => {
-          this.promotions = response;
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    }catch(e) {
-      console.log("error = " + e);
+      this._promotionService.getAllPromotions().subscribe((data: any) => {
+        this.promotions = data.content;
+
+      console.log(data)
+      });
+    } catch (error) {
+      console.log(error);
     }
   }
 }
