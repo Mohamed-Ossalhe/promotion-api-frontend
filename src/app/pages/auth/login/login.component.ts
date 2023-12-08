@@ -14,19 +14,22 @@ export class LoginComponent {
         type: 'email',
         name: 'email',
         id: 'email',
-        label: 'email'
+        label: 'email',
+        value: ''
       },
       {
         type: 'password',
         name: 'password',
         id: 'password',
-        label: 'password'
+        label: 'password',
+        value: ''
       },
       {
         type: 'submit',
         name: 'submit',
         id: 'submit',
-        label: 'login'
+        label: 'login',
+        value: ''
       }
     ],
     options: {
