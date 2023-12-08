@@ -48,6 +48,12 @@
                       <th
                         class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                         <div class="flex cursor-pointer">
+                          <span class="mr-2">EXPIRES AT AT</span>
+                        </div>
+                      </th>
+                      <th
+                        class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        <div class="flex cursor-pointer">
                           <span class="mr-2">ACTION</span>
                         </div>
                       </th>
@@ -61,7 +67,7 @@
                       </td>
                       <td
                         class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                        <p>{{item?.rate}}</p>
+                        <p>{{item?.rate}}%</p>
                       </td>
                       <td
                         class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
@@ -70,7 +76,7 @@
                             <i class='bx bxs-x-circle text-red-700 bx-sm'></i>
                           </div>
                           <div *ngIf="item.status == 'PENDING'">
-                            <i class='bx bxs-error bx-sm text-orange-600'></i>
+                            <i class='bx bxs-time bx-sm text-orange-600'></i>
                           </div>
                           <div *ngIf="item.status == 'APPROVED'">
                             <i class='bx bxs-check-circle bx-sm'></i>
@@ -85,6 +91,10 @@
                       <td
                         class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
                         <p>{{item?.updatedAt.substring(0, 10)}}</p>
+                      </td>
+                      <td
+                        class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                        <p>{{item?.expiry.substring(0, 10)}}</p>
                       </td>
                       <td
                         class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
