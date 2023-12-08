@@ -7,7 +7,7 @@
             <div class="navbar__navigation__menubar md:hidden text-white text-4xl cursor-pointer" (click)="navActive = !navActive">
                 <i [class]='navActive ? "bx bx-x" : "bx bx-menu"'></i>
             </div>
-            <div  [class]="navActive ? '' : 'hidden'" class="navbar__navigation absolute top-14 md:static md:block bg-main w-full text-white mt-4 md:mt-0 py-2 px-4 duration-100 ease-linear">
+            <div  [class]="navActive ? '' : 'hidden'" class="navbar__navigation absolute top-14 md:static md:block bg-main w-full text-white mt-4 md:mt-0 py-2 px-4 duration-100 ease-linear z-50">
                 <ul class="navbar__navigation__list flex flex-col items-start md:flex-row md:justify-end gap-4 md:gap-8 capitalize">
                     <li *ngFor="let navLink of navigationLinks" class="navbar__navigation__item">
                         <a [routerLink]="navLink?.url" class="navbar__navigation__link flex md:flex-col items-center gap-2 md:gap-0 cursor-pointer">
