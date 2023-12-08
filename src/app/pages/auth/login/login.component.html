@@ -5,7 +5,7 @@
                 <img src="../../../../assets/svg/marjane-logo-blue.svg" alt="">
             </div>
             <div class="login__form">
-                <app-form [form]="form"></app-form>
+                <app-form [form]="form" (dataEvent)="submitForm($event)"></app-form>
             </div>
         </div>
     </div>
