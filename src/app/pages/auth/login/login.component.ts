@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { formType } from 'src/app/types/formType';
+import {AuthService} from "../../../services/auth/auth.service";
+import {User} from "../../../interfaces/user";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -7,6 +10,16 @@ import { formType } from 'src/app/types/formType';
   styleUrls: ['./login.component.less']
 })
 export class LoginComponent {
+
+  private user: User | undefined;
+  public error: string = "";
+
+  constructor(private _authService: AuthService, private router: Router) {
+  }
+
+  ngOnInit() {
+    this.user = this._authService.getUser();
+  }
   public form: formType = {
     method: 'GET',
     formInputs: [
@@ -38,11 +51,20 @@ export class LoginComponent {
   }
 
   public submitForm(data: any) {
+    this.error = "";
     // TODO: add authentication service and pass the data
     if (data.email !== "" && data.password !== "")
-      console.log(data);
+      this._authService.login(data.email, data.password).subscribe((res) => {
+        if (res !== undefined){
+          this._authService.setUser(res);
+          this.router.navigate(['/dashboard']).then(r => console.log(r));
+        }
+        else
+          this.error = "wrong email or password";
+      }
+    );
     else
-      console.log("please fill the form");
-      
+      this.error = "please fill the form";
+
   }
 }
