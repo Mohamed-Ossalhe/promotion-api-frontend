@@ -15,7 +15,7 @@ import { KPICardComponent } from './kpicard/kpicard.component';
     TableComponent,
     NavbarComponent,
     FormComponent,
-    FormInputComponent
+    FormInputComponent,
     KPICardComponent
   ],
   imports: [
