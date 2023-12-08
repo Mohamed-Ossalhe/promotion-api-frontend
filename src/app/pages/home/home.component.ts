@@ -1,4 +1,6 @@
+import { sanitizeIdentifier } from '@angular/compiler';
 import {Component} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {Promotion} from 'src/app/interfaces/promotion';
 import {PromotionService} from 'src/app/services/promotion/promotion.service';
 import { formType } from 'src/app/types/formType';
@@ -11,8 +13,11 @@ import { formType } from 'src/app/types/formType';
 export class HomeComponent {
 
   promotions: Promotion[] = [];
+  dataObject: any;
 
   isCreateFormVisible: boolean = false;
+
+  page: number = 0;
 
   public form: formType = {
     method: 'GET',
@@ -44,13 +49,20 @@ export class HomeComponent {
     }
   }
 
-  constructor(private _promotionService: PromotionService) {
+  constructor(
+    private _route: ActivatedRoute,
+    private _promotionService: PromotionService
+    ) {
   }
 
   ngOnInit() {
     try {
-      this._promotionService.getAllPromotions().subscribe((data: any) => {
-        this.promotions = data.content;
+      this._route.queryParams.subscribe((params) => {
+        this.page = params['page'] || 0;
+        this._promotionService.getAllPromotions(this.page).subscribe((data: any) => {
+          this.promotions = data.content;
+          this.dataObject = data;
+        });
       });
     } catch (error) {
       console.log(error);

@@ -5,7 +5,8 @@
         <button class="bx bx-add-to-queue bx-sm " (click)="openCreatePopUp()"></button>
     </div>
     <app-table [data]="promotions"></app-table>
-    <app-popup [isVisible]="isCreateFormVisible" (closePopup)="closeCreatePopUp()" heading="add new promotion">
-        <app-form [form]="form" (dataEvent)="submitForm($event)"></app-form>
-    </app-popup>
+    <app-pagination [data]="dataObject" [page]="page"></app-pagination>
 </div>
+<app-popup [isVisible]="isCreateFormVisible" (closePopup)="closeCreatePopUp()" heading="add new promotion">
+    <app-form [form]="form" (dataEvent)="submitForm($event)"></app-form>
+</app-popup>
