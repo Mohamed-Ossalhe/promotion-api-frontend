@@ -7,6 +7,7 @@ import { FormComponent } from './form/form.component';
 import { FormInputComponent } from './form-input/form-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { KPICardComponent } from './kpicard/kpicard.component';
+import { PopupComponent } from './popup/popup.component';
 
 
 
@@ -16,7 +17,8 @@ import { KPICardComponent } from './kpicard/kpicard.component';
     NavbarComponent,
     FormComponent,
     FormInputComponent,
-    KPICardComponent
+    KPICardComponent,
+    PopupComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { KPICardComponent } from './kpicard/kpicard.component';
     TableComponent,
     NavbarComponent,
     FormComponent,
-    FormInputComponent
+    FormInputComponent,
+    PopupComponent
   ]
 })
 export class ComponentsModule { }

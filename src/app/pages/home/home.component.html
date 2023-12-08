@@ -1,2 +1,11 @@
-<!--<app-navbar></app-navbar>-->
-<app-table [data]="promotions"></app-table>
+<div class="container mx-auto px-4 md:px-8">
+    <!--<app-navbar></app-navbar>-->
+    <div class="flex flex-row justify-between mt-5">
+        <h1 class="font-bold text-base">Promotions</h1>
+        <button class="bx bx-add-to-queue bx-sm " (click)="openPopUp()"></button>
+    </div>
+    <app-table [data]="promotions"></app-table>
+    <app-popup [isVisible]="isVisible" (closePopup)="closePopUp()" heading="add new promotion">
+        <app-form [form]="form" (dataEvent)="submitForm($event)"></app-form>
+    </app-popup>
+</div>
