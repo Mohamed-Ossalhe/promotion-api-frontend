@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Promotion} from 'src/app/interfaces/promotion';
 import {PromotionService} from 'src/app/services/promotion/promotion.service';
 import { formType } from 'src/app/types/formType';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -44,7 +45,7 @@ export class HomeComponent {
     }
   }
 
-  constructor(private _promotionService: PromotionService) {
+  constructor(private _promotionService: PromotionService, private router: Router) {
   }
 
   ngOnInit() {
@@ -67,8 +68,14 @@ export class HomeComponent {
 
   // subitm form
   submitForm(data: any) {
+    console.log(data)
     // TODO: link this function to the service
-    console.log(data);
-    
+    this._promotionService.createPromotion(data).subscribe((data: any) => {
+      this.closeCreatePopUp();
+      this.router.navigate(['']).then(r => alert("Promotion created successfully!"));
+    }
+  );
+
   }
+
 }
