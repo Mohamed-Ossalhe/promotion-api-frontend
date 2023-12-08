@@ -24,6 +24,12 @@ export class HomeComponent {
         label: 'percentage'
       },
       {
+        type: 'date',
+        name: 'promotion_expiration',
+        id: 'promotion_expiration',
+        label: 'expiration date'
+      },
+      {
         type: 'submit',
         name: 'submit',
         id: 'submit',
@@ -42,8 +48,6 @@ export class HomeComponent {
     try {
       this._promotionService.getAllPromotions().subscribe((data: any) => {
         this.promotions = data.content;
-
-      console.log(data)
       });
     } catch (error) {
       console.log(error);
