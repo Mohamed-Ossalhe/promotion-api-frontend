@@ -1,0 +1,15 @@
+<div [class]="isVisible ? 'flex' : 'hidden'" class="container fixed top-0 left-0 bg-slate-500/25 items-center justify-center w-screen h-screen z-50">
+    <div class="popup md:w-96 mx-auto bg-white rounded-lg">
+        <div class="popup__container container mx-auto px-4 py-4 md:py-6 md:px-8 border-2 border-indigo-50">
+            <div class="popup__wrapper">
+                <div class="popup__header flex items-center content-center justify-between py-2 mb-4">
+                    <h1 class="text-main font-medium text-base capitalize">{{heading}}</h1>
+                    <i (click)="closeModal()" class="bx bx-x text-3xl cursor-pointer"></i>
+                </div>
+                <div class="popup__content">
+                    <ng-content></ng-content>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
