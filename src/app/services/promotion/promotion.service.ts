@@ -13,14 +13,14 @@ export class PromotionService {
     constructor(private _http: HttpClient) {
     }
 
-    /**
-     * this function gets all the promotions from the api
-     *
-     * @returns list of promotions
-     */
-    public getAllPromotions(): Observable<Promotion[]> {
-        return this._http.get<Promotion[]>(environment.API_URL + '/promotions/all') // get all promotions
-    }
+  /**
+   * this function gets all the promotions from the api
+   *
+   * @returns list of promotions
+   */
+  public getAllPromotions(page: number = 0, size: number = 1): Observable<Promotion[]>{
+    return this._http.get<Promotion[]>(`${environment.API_URL}/promotions/all?page=${page != 0 ? page - 1 : page}&size=${size}`) // get all promotions
+  }
 
     public createPromotion(data: any): Observable<Promotion> {
         const promotion: Promotion = {
