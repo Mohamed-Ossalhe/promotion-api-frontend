@@ -4,7 +4,9 @@
             <form [method]="form.method" [formGroup]="formGroup" class="flex flex-col gap-5">
                 <div *ngFor="let input of form.formInputs" class="form__control">
                     <app-form-input *ngIf="input.type !== 'submit'" [input]="input" [parentForm]="formGroup"></app-form-input>
-                    <input *ngIf="input.type === 'submit'" [type]="input.type" [id]="input.id" [name]="input.name" [value]="input.label" class="w-full py-2 px-4 bg-main text-white capitalize rounded cursor-pointer" />
+                    <button *ngIf="input.type === 'submit'" type="submit" [id]="input.id" (click)="submitForm()" class="w-full py-2 px-4 bg-main text-white capitalize rounded cursor-pointer">
+                        {{input.label}}
+                    </button>
                 </div>
             </form>
         </div>

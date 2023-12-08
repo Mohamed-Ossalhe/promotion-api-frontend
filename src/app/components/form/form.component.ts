@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { formType } from 'src/app/types/formType';
 
@@ -9,6 +9,7 @@ import { formType } from 'src/app/types/formType';
 })
 export class FormComponent {
   @Input({ alias: 'form', required: true }) form!: formType;
+  @Output() dataEvent = new EventEmitter<string>();
 
   // form
   public formGroup!: FormGroup;
@@ -23,11 +24,16 @@ export class FormComponent {
     const formGroup: FormGroup = this._formBuilder.group({});
     try {
       this.form.formInputs.forEach(input => {
-        formGroup.addControl(input.name, this._formBuilder.control('', Validators.required));
+        if (input.type !== 'submit')
+          formGroup.addControl(input.name, this._formBuilder.control('', Validators.required));
       });
     } catch (e) {
       console.log(e);
     }
     return formGroup;
+  }
+
+  public submitForm() {
+    this.dataEvent.emit(this.formGroup.value);
   }
 }

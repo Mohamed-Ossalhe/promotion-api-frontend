@@ -33,4 +33,13 @@ export class LoginComponent {
       headers: {}
     }
   }
+
+  public submitForm(data: any) {
+    // TODO: add authentication service and pass the data
+    if (data.email !== "" && data.password !== "")
+      console.log(data);
+    else
+      console.log("please fill the form");
+      
+  }
 }
