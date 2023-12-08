@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-type navLink = {
-  url: string,
-  icon: string,
-  label: string
-}
+import { navLink } from 'src/app/types/navLink';
 
 @Component({
   selector: 'app-navbar',
