@@ -12,7 +12,7 @@ export class HomeComponent {
 
   promotions: Promotion[] = [];
 
-  isVisible: boolean = false;
+  isCreateFormVisible: boolean = false;
 
   public form: formType = {
     method: 'GET',
@@ -21,19 +21,22 @@ export class HomeComponent {
         type: 'number',
         name: 'promotion_percentage',
         id: 'promotion_percentage',
-        label: 'percentage'
+        label: 'percentage',
+        value: 0
       },
       {
         type: 'date',
         name: 'promotion_expiration',
         id: 'promotion_expiration',
-        label: 'expiration date'
+        label: 'expiration date',
+        value: ''
       },
       {
         type: 'submit',
         name: 'submit',
         id: 'submit',
-        label: 'add promotion'
+        label: 'add promotion',
+        value: ''
       }
     ],
     options: {
@@ -54,13 +57,14 @@ export class HomeComponent {
     }
   }
 
-  openPopUp() {
-    this.isVisible = true;
+  openCreatePopUp() {
+    this.isCreateFormVisible = true;
   }
 
-  closePopUp() {
-    this.isVisible = false;
+  closeCreatePopUp() {
+    this.isCreateFormVisible = false;
   }
+
   // subitm form
   submitForm(data: any) {
     // TODO: link this function to the service
