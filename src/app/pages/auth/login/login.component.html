@@ -4,6 +4,7 @@
             <div class="login__heading flex items-center justify-center py-3 mb-5">
                 <img src="../../../../assets/svg/marjane-logo-blue.svg" alt="">
             </div>
+          <p class="text-center text-red-700 mb-5">{{error}}</p>
             <div class="login__form">
                 <app-form [form]="form" (dataEvent)="submitForm($event)"></app-form>
             </div>

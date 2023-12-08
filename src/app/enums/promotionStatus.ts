@@ -1,5 +1,5 @@
 export enum promotionStatus {
     accepted = "ACCEPTED",
-    refused = "REFUSED",
+    rejected = "REJECTED",
     pending = "PENDING"
 }
