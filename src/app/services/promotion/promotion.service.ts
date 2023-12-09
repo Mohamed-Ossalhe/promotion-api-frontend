@@ -18,7 +18,7 @@ export class PromotionService {
    *
    * @returns list of promotions
    */
-  public getAllPromotions(page: number = 0, size: number = 1): Observable<Promotion[]>{
+  public getAllPromotions(page: number = 0, size: number = 5): Observable<Promotion[]>{
     return this._http.get<Promotion[]>(`${environment.API_URL}/promotions/all?page=${page != 0 ? page - 1 : page}&size=${size}`) // get all promotions
   }
 

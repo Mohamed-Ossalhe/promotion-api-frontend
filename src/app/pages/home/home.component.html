@@ -2,7 +2,10 @@
     <!--<app-navbar></app-navbar>-->
     <div class="flex flex-row justify-between mt-5">
         <h1 class="font-bold text-base">Promotions</h1>
-        <button class="bx bx-add-to-queue bx-sm " (click)="openCreatePopUp()"></button>
+        <button class="flex items-center gap-2 bg-main text-white py-2 px-4 rounded-lg" (click)="openCreatePopUp()">
+            <i class="bx bx-add-to-queue bx-sm"></i>
+            New Promotion
+        </button>
     </div>
     <app-table [data]="promotions"></app-table>
     <app-pagination [data]="dataObject" [page]="page"></app-pagination>
